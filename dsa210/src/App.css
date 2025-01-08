@@ -2,37 +2,290 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Center align the buttons */
+  gap: 15px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 2px solid #282c34;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 4px #282c34;
+}
+
+.selected {
+  background-color: #007bff; /* Blue color for selected button */
+  color: white; /* White text for better contrast */
+  border: none;
+}
+
+.purpose-text {
+  text-align: left;
+  margin: 20px;
+}
+
+.purpose-text h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.purpose-text p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.monthly-comparison {
+  display: flex;
+  flex-direction: column; /* Arrange items in a column */
+  align-items: center; /* Center items horizontally */
+}
+
+.monthly-comparison button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 2px solid #282c34;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.monthly-comparison button:hover {
+  background-color: #c2a1de;
+  transform: scale(1.05);
+}
+
+.monthly-comparison button:focus {
+  outline: none;
+  box-shadow: 0 0 4px #282c34;
+}
+
+.monthly-comparison .selected-month {
+  background-color: #007bff; /* Blue color for selected month button */
+  color: white; /* White text for better contrast */
+  border: none;
+}
+
+.affect-of-decision button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 2px solid #282c34;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.affect-of-decision button:hover {
+  background-color: #c2a1de;
+  transform: scale(1.05);
+}
+
+.affect-of-decision button:focus {
+  outline: none;
+  box-shadow: 0 0 4px #282c34;
+}
+
+.affect-of-decision {
+  display: flex;
+  justify-content: center; /* Align horizontally */
+  gap: 15px; /* Space between buttons */
+  margin-top: 20px;
+}
+
+.graph-display {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center; /* Center the graph */
+}
+
+.graph-display img {
+  max-width: 100%;
+  height: auto;
+}
+
+.top-songs {
+  text-align: left;
+  margin: 20px;
+}
+
+.top-songs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.top-songs-header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.top-songs h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.song-list {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.song-list li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: #555;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.song-list .count {
+  font-weight: bold;
+  color: #333;
+}
+
+.artist-list {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.artist-list li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: #555;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.artist-list .count {
+  font-weight: bold;
+  color: #333;
+}
+
+.top-artist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.top-artist-header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+.affect-of-decision .selected-decision { 
+  background-color: rgb(84, 84, 230); 
+  color: white; /* Text color to ensure readability */ 
+  border: none;
+}
+
+
+
+.affect-on-mood {
+  padding: 20px;
+}
+
+.mood-container {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+.mood-item {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.mood-image {
+  max-width: 600px;
+  height: auto;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin-top: 35px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mood-text {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+
+.affect-of-decision {
+  padding: 20px;
+}
+
+.graph-display {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.comparison-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.comparison-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.comparison-image {
+  max-width: 100px;
+  height: auto;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.comparison-text {
+  font-size: 16px;
+  line-height: 1.5;
+  flex-grow: 1;
 }
