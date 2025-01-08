@@ -1,10 +1,17 @@
 import './App.css';
 import { useState } from 'react';
+import { HiMusicalNote } from "react-icons/hi2";
+
+
 
 function App() {
   const [selectedButton, setSelectedButton] = useState('About');
   const [selectedMonth, setSelectedMonth] = useState(''); // For Monthly Comparison buttons
   const [selectedDecision, setSelectedDecision] = useState(''); // For Affect Of Decision buttons
+  const [selectedGraph, setSelectedGraph] = useState('Line'); // Default to Line
+  const [selectedMood, setSelectedMood] = useState('Mood1'); // Default to Mood1
+
+
 
   const handleButtonClick = (buttonName) => {
     setSelectedButton(buttonName);
@@ -38,8 +45,15 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Music Listening Time Analysis</h1>
+        <div className="header-left">
+          <HiMusicalNote className="musical-note-icon" />
+          <h1>Music Listening Time Analysis</h1>
+          <HiMusicalNote className="musical-note-icon" />
+        </div>
+        <div className="author-text">By: Amna Amir Zeb</div>
       </header>
+
+
       <main>
         <div className="button-container">
           <button
@@ -87,7 +101,7 @@ function App() {
               <p>{dataCollectionTxt1}</p>
               <p>{dataCollectionTxt2}</p>
               <p>{dataCollectionTxt3}</p>
-              <p>{dataCollectionTxt4}</p>
+              <p className='EOP'>{dataCollectionTxt4}</p>
             </div>
           )}
           {selectedButton === 'Monthly Comparison' && (
@@ -126,61 +140,171 @@ function App() {
               </div>
               <div className="graph-display">
                 {selectedMonth === 'All' && (
-                  <img src={require('./Graphs/AllMonths2.png')} alt="All Months Graph" className="graph-image" />                  
+                  <div>
+                    <h1 className='Graph-Title'>Average Monthly Listening Time Analysis</h1>
+                    <img src={require('./Graphs/AllMonths2.png')} alt="All Months Graph" className="graph-image" />
+                    <p>{process.env.REACT_APP_ALL_GRAPH}</p>
+                </div>                  
                 )}
                 {selectedMonth === 'September' && (
-                  <img src={require('./Graphs/September.png')} alt="September Graph" className="graph-image" />
+                  <div>
+                    <h1 className='Graph-Title'>September Listening Time Analysis</h1>
+                    <img src={require('./Graphs/September.png')} alt="September Graph" className="graph-image" />
+                    <p>{process.env.REACT_APP_SEPT_GRAPH}</p>
+                  </div>
                 )}
                 {selectedMonth === 'October' && (
-                  <img src={require('./Graphs/October.png')} alt="October Graph" className="graph-image" />
+                  <div>
+                    <h1 className='Graph-Title'>October Listening Time Analysis</h1>
+                    <img src={require('./Graphs/October.png')} alt="October Graph" className="graph-image" />
+                    <p>{process.env.REACT_APP_OCT_GRAPH1}</p>
+                    <p>{process.env.REACT_APP_OCT_GRAPH2}</p>
+                  </div>
                 )}
                 {selectedMonth === 'November' && (
-                  <img src={require('./Graphs/November.png')} alt="November Graph" className="graph-image" />
+                  <div>
+                    <h1 className='Graph-Title'>November Listening Time Analysis</h1>
+                    <img src={require('./Graphs/November.png')} alt="November Graph" className="graph-image" />
+                    <p>{process.env.REACT_APP_NOV_GRAPH1}</p>
+                    <p>{process.env.REACT_APP_NOV_GRAPH2}</p>
+                    <p>{process.env.REACT_APP_NOV_GRAPH3}</p>
+                  </div>
                 )}
                 {selectedMonth === 'December' && (
-                  <img src={require('./Graphs/December.png')} alt="December Graph" className="graph-image" />
+                  <div>
+                    <h1 className='Graph-Title'>December Listening Time Analysis</h1>
+                    <img src={require('./Graphs/December.png')} alt="December Graph" className="graph-image" />
+                    <p>{process.env.REACT_APP_DEC_GRAPH1}</p>
+                    <p>{process.env.REACT_APP_DEC_GRAPH2}</p>
+                  </div>
                 )}
               </div>
             </div>
           )}
+          
           {selectedButton === 'Affect Of Decision' && (
-            <div className="affect-of-decision">                        
-              <div className="graph-display">
-                <div className="comparison-container">
-                  <div className="comparison-item">
-                    <img src={require('./Graphs/Decision1.png')} alt="Decision 1" className="comparison-image" />
-                    <p className="comparison-text">This is the text for Decision 1. Explain its significance here.</p>
-                  </div>
-                  <div className="comparison-item">
-                    <img src={require('./Graphs/Decision3.png')} alt="Decision 2" className="comparison-image" />
-                    <p className="comparison-text">This is the text for Decision 2. Highlight key points here.</p>
-                  </div>
-                  <div className="comparison-item">
-                    <img src={require('./Graphs/Decision2.png')} alt="Decision 3" className="comparison-image" />
-                    <p className="comparison-text">This is the text for Decision 3. Add relevant details here.</p>
-                  </div>
-                </div>              
+            <div className="affect-of-decision">
+              <div className="button-container">
+                <button
+                  className={selectedGraph === 'Line' ? 'selected-graph' : ''}
+                  onClick={() => setSelectedGraph('Line')}
+                >
+                  Line
+                </button>
+                <button
+                  className={selectedGraph === 'Trend' ? 'selected-graph' : ''}
+                  onClick={() => setSelectedGraph('Trend')}
+                >
+                  Trend
+                </button>
+                <button
+                  className={selectedGraph === 'Histogram' ? 'selected-graph' : ''}
+                  onClick={() => setSelectedGraph('Histogram')}
+                >
+                  Histogram
+                </button>
               </div>
-            </div>
-          )}
-          {selectedButton === 'Mood' && (
-            <div className="affect-on-mood">
-              <div className="mood-container">
-                <div className="mood-item">
-                  <img src={require('./Graphs/Mood1.png')} alt="Mood Graph 1" className="mood-image" />
-                  <p className="mood-text">This is the description for Mood Graph 1. Explain its relevance here.</p>
-                </div>
-                <div className="mood-item">
-                  <img src={require('./Graphs/Mood2.png')} alt="Mood Graph 2" className="mood-image" />
-                  <p className="mood-text">This is the description for Mood Graph 2. Provide details about the graph here.</p>
-                </div>
+              <div className="graph-display">
+                {selectedGraph === 'Line' && (
+                  <div>
+                    <h1 className='Graph-Title'>Listening Time Before & After Making Decision</h1>
+                    <img
+                      src={require('./Graphs/Decision1.png')}
+                      alt="Line Graph"
+                      className="graph-image"
+                    />
+                    <p>{process.env.REACT_APP_DECISION1_1}</p>
+                    <p>{process.env.REACT_APP_DECISION1_2}</p>
+                    <p>{process.env.REACT_APP_DECISION1_3}</p>
+                  </div>
+                )}
+                {selectedGraph === 'Trend' && (
+                  <div>
+                    <h1 className='Graph-Title'>Trend Of Listening Time Before & After Making Decision</h1>
+                    <img
+                      src={require('./Graphs/Decision3.png')}
+                      alt="Trend Graph"
+                      className="graph-image"
+                    />
+                    <p>{process.env.REACT_APP_DECISION2_1}</p>
+                    <p>{process.env.REACT_APP_DECISION2_2}</p>
+                    <p>{process.env.REACT_APP_DECISION2_3}</p>
+                    <p>{process.env.REACT_APP_DECISION2_4}</p>
+                  </div>
+                )}
+                {selectedGraph === 'Histogram' && (
+                  <div>
+                    <h1 className='Graph-Title'>Histogram Listening Time Analysis</h1>
+                    <img
+                      src={require('./Graphs/Decision2.png')}
+                      alt="Histogram Graph"
+                      className="graph-image"
+                    />
+                    <p>{process.env.REACT_APP_DECISION3_1}</p>
+                    <p>{process.env.REACT_APP_DECISION3_2}</p>
+                    <p>{process.env.REACT_APP_DECISION3_3}</p>
+                    <p>{process.env.REACT_APP_DECISION3_4}</p>
+                  </div>
+                )}
               </div>
             </div>
           )}
 
+
+
+          {selectedButton === 'Mood' && (
+            <div className="affect-on-mood">
+              <div className="button-container">
+                <button
+                  className={selectedMood === 'Mood1' ? 'selected-mood' : ''}
+                  onClick={() => setSelectedMood('Mood1')}
+                >
+                  Scatter Plot
+                </button>
+                <button
+                  className={selectedMood === 'Mood2' ? 'selected-mood' : ''}
+                  onClick={() => setSelectedMood('Mood2')}
+                >
+                  Box Plot
+                </button>
+              </div>
+              <div className="mood-display">
+                {selectedMood === 'Mood1' && (
+                  <div>
+                    <h1 className='Graph-Title'>Affect Of Listening Time On Mood</h1>
+                    <img
+                      src={require('./Graphs/Mood1.png')}
+                      alt="Mood Graph 1"
+                      className="mood-image"
+                    />
+                    <p>{process.env.REACT_APP_MOOD1_1}</p>
+                    <p>{process.env.REACT_APP_MOOD1_2}</p>
+                    <p>{process.env.REACT_APP_MOOD1_3}</p>
+                    <p>{process.env.REACT_APP_MOOD1_4}</p>
+                  </div>
+                )}
+                {selectedMood === 'Mood2' && (
+                  <div>
+                    <h1 className='Graph-Title'>Distribution Of Listening Time Based On Mood</h1>
+                    <img
+                      src={require('./Graphs/Mood2.png')}
+                      alt="Mood Graph 2"
+                      className="mood-image2"
+                    />
+                    <p>{process.env.REACT_APP_MOOD2_1}</p>
+                    <p>{process.env.REACT_APP_MOOD2_2}</p>
+                    <p>{process.env.REACT_APP_MOOD2_3}</p>
+                    <p>{process.env.REACT_APP_MOOD2_4}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+
           {selectedButton === 'Top Songs/Artist' && (
             <div className="top-songs">
-              <h2>Top 5 Most Listened To Songs:-</h2>
+              <h1>Top 5 Most Listened To Songs:-</h1>
               <div className="top-songs-header">
                 <span><h3>Songs Title</h3></span>
                 <span><h3>No. Times Listened</h3></span>
@@ -193,7 +317,7 @@ function App() {
                 <li><span>5. Gore Gore Mukhde Pe (From "Ishq Vishk Rebound")</span><span class="count">17</span></li>
               </ol>
 
-              <h2>Top 5 Most Listened To Artists:-</h2>
+              <h1>Top 5 Most Listened To Artists:-</h1>
               <div className="top-artist-header">
                 <span><h3>Artist Name</h3></span>
                 <span><h3>No. Songs Listened By Them</h3></span>

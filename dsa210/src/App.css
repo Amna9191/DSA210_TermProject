@@ -1,19 +1,43 @@
 .App {
-  text-align: center;
+  text-align: center;  
 }
 
 .App-header {
-  background-color: #282c34;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 1.5rem;
-  margin: 0;
-  padding: 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: #F24B59; /* Header background color */
+  height: 120px; /* Header height */
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between the left and right content */
+  align-items: center; /* Center the items vertically */
+  color: white; /* Text and icon color */
+  padding: 0 20px; /* Add horizontal padding */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  position: relative; /* For positioning child elements */
 }
+
+.header-left {
+  display: flex; /* Align musical notes and text horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.header-left h1 {
+  margin: 0 10px; /* Space between the musical notes and the text */
+  font-size: 60px; /* Font size for the heading */
+}
+
+.musical-note-icon {
+  font-size: 50px; /* Adjust icon size */
+}
+
+.author-text {
+  position: absolute; /* Position relative to the header */
+  bottom: 10px; /* Move to the bottom of the header */
+  right: 20px; /* Move to the right of the header */
+  font-size: 20px; /* Adjust text size */
+  color: white; /* Text color */
+  font-weight: bold; /* Optional: Make text bold */
+}
+
+
 
 .button-container {
   display: flex;
@@ -24,17 +48,21 @@
 
 button {
   padding: 10px 20px;
-  font-size: 1rem;
-  border: 2px solid #282c34;
+  font-size: 20px;
+  border: none;
   border-radius: 5px;
-  background-color: white;
+  background-color: #4BC3F2;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
+  color: #020873;
+  font-weight: 700;
 }
 
 button:hover {
-  background-color: #f0f0f0;
+  background-color: #0476D9;
   transform: scale(1.05);
+  color: white;
+  font-weight: 600;
 }
 
 button:focus {
@@ -43,8 +71,10 @@ button:focus {
 }
 
 .selected {
-  background-color: #007bff; /* Blue color for selected button */
-  color: white; /* White text for better contrast */
+  background-color: #020873; /* Blue color for selected button */
+  transform: scale(1.05);
+  color: white;
+  font-weight: 600;
   border: none;
 }
 
@@ -54,16 +84,17 @@ button:focus {
 }
 
 .purpose-text h2 {
-  font-size: 1.8rem;
-  color: #333;
+  font-size: 40px;
+  color: #F24141;
   margin-bottom: 10px;
   margin-top: 20px;
 }
 
 .purpose-text p {
-  font-size: 1rem;
-  color: #555;
+  font-size: 18p  x;
+  color: #023E73;
   line-height: 1.6;
+  font-weight: 700;
 }
 
 .monthly-comparison {
@@ -75,16 +106,19 @@ button:focus {
 .monthly-comparison button {
   padding: 10px 20px;
   font-size: 1rem;
-  border: 2px solid #282c34;
+  border: none;
   border-radius: 5px;
-  background-color: white;
+  background-color: #F25E5E;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
+  color: white;
 }
 
 .monthly-comparison button:hover {
-  background-color: #c2a1de;
+  background-color: #F2D3D0;
   transform: scale(1.05);
+  color: #40221B;
+  font-weight: 700;
 }
 
 .monthly-comparison button:focus {
@@ -93,24 +127,33 @@ button:focus {
 }
 
 .monthly-comparison .selected-month {
-  background-color: #007bff; /* Blue color for selected month button */
+  background-color: #F20C0C; /* Blue color for selected month button */
   color: white; /* White text for better contrast */
   border: none;
+}
+
+.affect-of-decision {
+  display: flex;
+  flex-direction: column; /* Arrange items in a column */
+  align-items: center; /* Center items horizontally */
 }
 
 .affect-of-decision button {
   padding: 10px 20px;
   font-size: 1rem;
-  border: 2px solid #282c34;
+  border: none;
   border-radius: 5px;
-  background-color: white;
+  background-color: #F25E5E;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
+  color: white;
 }
 
 .affect-of-decision button:hover {
-  background-color: #c2a1de;
+  background-color: #F2D3D0;
   transform: scale(1.05);
+  color: #40221B;
+  font-weight: 700;
 }
 
 .affect-of-decision button:focus {
@@ -118,11 +161,10 @@ button:focus {
   box-shadow: 0 0 4px #282c34;
 }
 
-.affect-of-decision {
-  display: flex;
-  justify-content: center; /* Align horizontally */
-  gap: 15px; /* Space between buttons */
-  margin-top: 20px;
+.affect-of-decision .selected-graph {
+  background-color: #F20C0C; /* Blue color for selected month button */
+  color: white; /* White text for better contrast */
+  border: none;
 }
 
 .graph-display {
@@ -147,7 +189,7 @@ button:focus {
   align-items: center;
   font-size: 1.2rem;
   margin-bottom: 5px;
-  color: #333;
+  color: #F24141;
 }
 
 .top-songs-header h3 {
@@ -155,11 +197,12 @@ button:focus {
   margin-bottom: 0;
 }
 
-.top-songs h2 {
-  font-size: 1.8rem;
-  color: #333;
+.top-songs h1 {
+  font-size: 35px;
+  color: #D90718;
   margin-bottom: 10px;
   margin-top: 20px;
+  font-weight: bold;
 }
 
 .song-list {
@@ -170,15 +213,15 @@ button:focus {
 .song-list li {
   display: flex;
   justify-content: space-between;
-  font-size: 1rem;
-  color: #555;
+  font-size: 20px;
+  color: #0468BF;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .song-list .count {
   font-weight: bold;
-  color: #333;
+  color: #0468BF;
 }
 
 .artist-list {
@@ -189,15 +232,15 @@ button:focus {
 .artist-list li {
   display: flex;
   justify-content: space-between;
-  font-size: 1rem;
-  color: #555;
+  font-size: 20px;
+  color: #0468BF;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .artist-list .count {
   font-weight: bold;
-  color: #333;
+  color: #0468BF;
 }
 
 .top-artist-header {
@@ -206,55 +249,12 @@ button:focus {
   align-items: center;
   font-size: 1.2rem;
   margin-bottom: 5px;
-  color: #333;
+  color: #F24141;
 }
 
 .top-artist-header h3 {
   margin-top: 0;
   margin-bottom: 0;
-}
-
-
-.affect-of-decision .selected-decision { 
-  background-color: rgb(84, 84, 230); 
-  color: white; /* Text color to ensure readability */ 
-  border: none;
-}
-
-
-
-.affect-on-mood {
-  padding: 20px;
-}
-
-.mood-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.mood-item {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.mood-image {
-  max-width: 600px;
-  height: auto;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  margin-top: 35px;
-}
-
-.mood-text {
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-
-.affect-of-decision {
-  padding: 20px;
 }
 
 .graph-display {
@@ -265,27 +265,91 @@ button:focus {
 
 .comparison-container {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  flex-wrap: wrap; /* Allows items to wrap if the screen is small */
+  justify-content: space-between; /* Spreads out items evenly */
+  gap: 20px; /* Adds space between items */
 }
 
 .comparison-item {
   display: flex;
-  align-items: center;
-  gap: 20px;
+  flex-direction: column; /* Ensures the image and text stack within each item */
+  align-items: center; /* Centers content horizontally */
+  flex-basis: 30%; /* Ensures each item takes a percentage of the container width */
+  max-width: 300px; /* Optional: limits the size of each item */
+  text-align: center; /* Centers text */
 }
 
 .comparison-image {
-  max-width: 100px;
-  height: auto;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  max-width: 100%; /* Ensures the image doesn't overflow */
+  height: auto; /* Maintains aspect ratio */
 }
 
 .comparison-text {
-  font-size: 16px;
-  line-height: 1.5;
-  flex-grow: 1;
+  margin-top: 10px; /* Adds space between image and text */
+  font-size: 14px; /* Adjusts text size */
 }
+
+p {
+  font-size: 20px;
+  text-align: left;
+  margin-left: 25px;
+  margin-right: 25px;
+  font-weight: 700;
+  color: #032859;
+}
+
+
+.affect-on-mood {
+  display: flex;
+  flex-direction: column; /* Arrange items in a column */
+  align-items: center; /* Center items horizontally */
+}
+
+.affect-on-mood button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #F25E5E;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  color: white;
+}
+
+.affect-on-mood button:hover {
+  background-color: #F2D3D0;
+  transform: scale(1.05);
+  color: #40221B;
+  font-weight: 700;
+}
+
+.affect-on-mood button:focus {
+  outline: none;
+  box-shadow: 0 0 4px #282c34;
+}
+
+.affect-on-mood .selected-mood {
+  background-color: #F20C0C; /* Blue color for selected month button */
+  color: white; /* White text for better contrast */
+  border: none;
+}
+
+.mood-image{
+  max-width: 70%;
+  height: auto;
+}
+
+.mood-image2{
+  max-width: 100%;
+  height: auto;
+}
+
+
+.EOP{
+  padding-bottom: 50px;
+}
+
+.Graph-Title{
+  color: #D90718;
+}
+
