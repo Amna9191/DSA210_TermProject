@@ -199,19 +199,19 @@ function App() {
                   className={selectedGraph === 'Line' ? 'selected-graph' : ''}
                   onClick={() => setSelectedGraph('Line')}
                 >
-                  Line
+                  Listening Time Before vs. After
                 </button>
                 <button
                   className={selectedGraph === 'Trend' ? 'selected-graph' : ''}
                   onClick={() => setSelectedGraph('Trend')}
                 >
-                  Trend
+                  Observe Trend
                 </button>
                 <button
                   className={selectedGraph === 'Histogram' ? 'selected-graph' : ''}
                   onClick={() => setSelectedGraph('Histogram')}
                 >
-                  Histogram
+                  Observe Histogram
                 </button>
               </div>
               <div className="graph-display">
