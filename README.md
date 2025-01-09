@@ -73,7 +73,7 @@ The results will be shared through:
   - Heatmaps to represent peak listening hours and their correlation with mood scores.  
 
 ### **4. Report and Presentation:**  
-- Summarize findings in a detailed report or create an interactive website showcasing key insights.  
+- Summarize findings in an interactive website showcasing key insights.  
 - Include visualizations and explanations for all significant trends and patterns.
 
 ### **5. GitHub Repository:**  
