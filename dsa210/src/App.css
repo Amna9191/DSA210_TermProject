@@ -353,3 +353,27 @@ p {
   color: #D90718;
 }
 
+
+.conclusion-h2{
+  text-align: left;
+  margin-left: 20px;
+  color: #D90718;
+}
+
+.conclusion-h1{
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 40px;
+  color: #D90718;
+}
+
+.conclusion-p{
+  text-align: left;
+  margin-left: 50px;
+}
+
+.conclusion{
+  text-align: left;
+  margin-left: 20px;
+  color: #023E73;
+}

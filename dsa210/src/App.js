@@ -10,6 +10,8 @@ function App() {
   const [selectedDecision, setSelectedDecision] = useState(''); // For Affect Of Decision buttons
   const [selectedGraph, setSelectedGraph] = useState('Line'); // Default to Line
   const [selectedMood, setSelectedMood] = useState('Mood1'); // Default to Mood1
+  const [selectedConclusion, setSelectedConclusion] = useState(false); // Default to false
+
 
 
 
@@ -89,7 +91,15 @@ function App() {
             onClick={() => handleButtonClick('Top Songs/Artist')}
           >
             Top Songs/Artist
-          </button>          
+          </button>   
+
+          <button
+            className={selectedButton === 'Conclusion' ? 'selected' : ''}
+            onClick={() => handleButtonClick('Conclusion')} // Toggle Comparison state
+          >
+            Conclusion
+          </button>
+
         </div>
         
         <div className="content">
@@ -329,6 +339,23 @@ function App() {
                 <li><span>4. Pritam</span><span className="count">63</span></li>
                 <li><span>5. One Direction</span><span className="count">59</span></li>
               </ol>
+            </div>
+          )}
+
+          {selectedButton == "Conclusion" && (
+            <div className="conclusion-text">
+              <h2 className='conclusion-h2'>Before Decision:</h2>
+              <p className='conclusion-p'>Average Daily Listening Time: 1:40:20</p>
+              <p className='conclusion-p'>Average Weekly Listening Time: 11:42:22</p>
+
+              <h2 className='conclusion-h2'>After Decision:</h2>
+              <p className='conclusion-p'>Average Daily Listening Time: 0:28:33</p>
+              <p className='conclusion-p'>Average Weekly Listening Time: 3:19:53</p>
+
+              <h1 className='conclusion-h1'>Conclusion:</h1>
+              <p className='conclusion'>{process.env.REACT_APP_CONCLUSION_1}</p>
+              <p className='conclusion'>{process.env.REACT_APP_CONCLUSION_2}</p>
+              <p className='conclusion'>{process.env.REACT_APP_CONCLUSION_3}</p>            
             </div>
           )}
         </div>
